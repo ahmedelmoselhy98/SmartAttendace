@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    /************************** public ***************************/
+    <color name="primary">#ED693C</color>
+    <color name="primary_10a">#1AED693C</color>
+    <color name="secondary">#0285CE</color>
+    <color name="secondary_10a">#1A0285CE</color>
+    <color name="blue">#0285CE</color>
+    <color name="blue_10a">#1A0285CE</color>
+    <color name="grey_10a">#1A777777</color>
+    <color name="line_grey">#B0B0B0</color>
+    <color name="shimmer_grey">#B0B0B0</color>
+    <color name="shadow_grey">#B0B0B0</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#1D9502</color>
+    <color name="grey">#777777</color>
+    <color name="grey11">#A5A4A4</color>
+    <color name="facebook_blue">#4267B2</color>
+    <color name="transparent">#00000000</color>
+    /************************** Background ***************************/
+    <color name="background_screen">@color/white</color>
+    <color name="background_primary">@color/primary</color>
+    <color name="background_blue">@color/blue</color>
+    <color name="background_grey">@color/grey</color>
+    <color name="background_grey1">#f1f1f1</color>
+    /************************** Stroke ***************************/
+    <color name="stroke_primary">@color/primary</color>
+    <color name="stroke_grey">#DADADA</color>
+    <color name="stroke_black">#121212</color>
+    <color name="stroke_green">#4CAF50</color>
+    <color name="stroke_facebook_blue">@color/facebook_blue</color>
+    <color name="stroke_blue">#314C77</color>
+    <color name="stroke_blue_light1">#EEF2F8</color>
+    /************************** progress ***************************/
+    <color name="progress_primary">@color/primary</color>
+    /************************** buttons ***************************/
+    <color name="button_background_primary">@color/primary</color>
+    <color name="button_stroke_primary">@color/primary</color>
+    <color name="button_stroke_grey">@color/grey</color>
+    <color name="button_stroke_black">#121212</color>
+    <color name="button_stroke_red">#F93010</color>
+    <color name="button_background_red">#F93010</color>
+    <color name="button_background_grey">#B0B0B0</color>
+    <color name="button_background_yellow">#ffc629</color>
+    /************************** icons ***************************/
+    <color name="icon_tint_primary">@color/primary</color>
+    <color name="icon_tint_grey">@color/grey</color>
+    <color name="icon_tint_blue_light">#0098ff</color>
+    <color name="icon_tint_black">#121212</color>
+    <color name="icon_tint_white">#ffffff</color>
+    <color name="icon_tint_red">#F93010</color>
+    <color name="icon_tint_yellow">#ffc629</color>
+    /************************** text ***************************/
+    <color name="text_color_primary">@color/primary</color>
+    <color name="hint_color_grey">@color/grey</color>
+    <color name="text_color_grey">@color/grey</color>
+    <color name="text_color_black">#121212</color>
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_green">#1aa039</color>
+    <color name="text_color_red">#F93010</color>
+    // light colors
+    <color name="light_blue">#e6f5ff</color>
+
+    /*****************************************************/
+    // Random colors helper
+    <!-- this colors for Color helper class used to generate random colors  -->
+    <item name="blue_helper" type="color">#FF33B5E5</item>
+    <item name="purple_helper" type="color">#FFAA66CC</item>
+    <item name="green_helper" type="color">#FF99CC00</item>
+    <item name="orange_helper" type="color">#FFFFBB33</item>
+    <item name="red_helper" type="color">#FFFF4444</item>
+    <item name="darkblue_helper" type="color">#FF0099CC</item>
+    <item name="darkpurple_helper" type="color">#FF9933CC</item>
+    <item name="darkgreen_helper" type="color">#FF669900</item>
+    <item name="darkorange_helper" type="color">#FFFF8800</item>
+    <item name="darkred_helper" type="color">#FFCC0000</item>
+    <integer-array name="randomColors">
+        <item>@color/blue_helper</item>
+        <item>@color/purple_helper</item>
+        <item>@color/green_helper</item>
+        <item>@color/orange_helper</item>
+        <item>@color/red_helper</item>
+        <item>@color/darkblue_helper</item>
+        <item>@color/darkpurple_helper</item>
+        <item>@color/darkgreen_helper</item>
+        <item>@color/darkorange_helper</item>
+        <item>@color/darkred_helper</item>
+    </integer-array>
+
+</resources>

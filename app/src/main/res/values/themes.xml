@@ -1,0 +1,260 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SmartAttendace" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/text_color_primary</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_10a</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="fontFamily">@font/neo_sans_arabic</item>
+        <!--        <item name="android:fontFamily">@font/neo_sans_arabic</item>-->
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    **************************** Button *************************************
+
+    <style name="ButtonContainedPrimary" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="iconTint">@color/icon_tint_white</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="backgroundTint">@color/background_primary</item>
+        <item name="iconGravity">textStart</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+    </style>
+
+    <style name="ButtonContainedGrey" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color_grey</item>
+        <item name="iconTint">@color/icon_tint_grey</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="backgroundTint">@color/background_grey1</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+    </style>
+
+    <style name="ButtonContainedBlue" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="iconTint">@color/icon_tint_white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="backgroundTint">@color/background_blue</item>
+        <item name="iconGravity">textStart</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+    </style>
+
+    <style name="ButtonOutlinePrimary" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">@color/stroke_primary</item>
+        <item name="iconTint">@color/icon_tint_primary</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+    </style>
+
+    <style name="ButtonOutlineBlue" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">@color/blue</item>
+        <item name="iconTint">@color/blue</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="ButtonOutlineGreen" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">@color/stroke_green</item>
+        <item name="iconTint">@color/stroke_green</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/text_color_green</item>
+    </style>
+
+    <style name="ButtonOutlineBlack" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">@color/stroke_black</item>
+        <item name="iconTint">@color/icon_tint_black</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+    <style name="ButtonOutlineGrey" parent="@style/Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="strokeColor">@color/button_stroke_grey</item>
+        <item name="iconTint">@color/icon_tint_grey</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+    <style name="TextButtonPrimary" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="iconTint">@color/icon_tint_primary</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="iconPadding">@dimen/_8sdp</item>
+        <item name="textAllCaps">false</item>
+        <item name="cornerRadius">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
+        <item name="android:paddingBottom">@dimen/_10sdp</item>
+    </style>
+    **************************** EditText *************************************
+
+    <style name="BoxEditTextGrey" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/_5sdp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textColorHint">@color/text_color_grey</item>
+    </style>
+
+    <style name="SelectionExpandable" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:layout_marginTop">@dimen/_5sdp</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+    </style>
+
+
+    <style name="MaterialBoxInputTextGrey" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/text_color_grey</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_8sdp</item>
+        <item name="iconTint">@color/icon_tint_primary</item>
+        <item name="boxBackgroundColor">@color/background_screen</item>
+        <item name="boxStrokeColor">@color/stroke_grey</item>
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="hintTextColor">@color/text_color_grey</item>
+    </style>
+
+    <style name="MaterialInputTextGrey" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_8sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_8sdp</item>
+        <item name="startIconTint">@color/icon_tint_primary</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_8sdp</item>
+        <item name="boxBackgroundColor">@color/background_screen</item>
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+
+    <!--    <style name="MaterialBoxEditTextGrey" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">-->
+    <!--        <item name="android:layout_width">match_parent</item>-->
+    <!--        <item name="android:layout_height">wrap_content</item>-->
+    <!--        <item name="colorPrimaryVariant">@color/line_grey</item>-->
+    <!--        <item name="android:textColorHint">@color/text_color_grey</item>-->
+    <!--        <item name="boxCornerRadiusBottomEnd">@dimen/_8sdp</item>-->
+    <!--        <item name="boxCornerRadiusBottomStart">@dimen/_8sdp</item>-->
+    <!--        <item name="boxCornerRadiusTopEnd">@dimen/_8sdp</item>-->
+    <!--        <item name="boxCornerRadiusTopStart">@dimen/_8sdp</item>-->
+    <!--        <item name="boxBackgroundColor">@color/text_background_white</item>-->
+    <!--        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>-->
+    <!--        <item name="android:textColor">@color/text_color_black</item>-->
+    <!--        <item name="hintTextColor">@color/text_color_grey</item>-->
+    <!--        <item name="startIconTint">@color/icon_tint_grey</item>-->
+    <!--        <item name="endIconTint">@color/icon_tint_grey</item>-->
+    <!--    </style>-->
+    **************************** Dialog *************************************
+    // bottom sheet dialog style
+
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <!--<item name="android:windowCloseOnTouchOutside">false</item>-->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="windowFixedWidthMajor">90%</item>
+        <item name="windowFixedHeightMajor">100%</item>
+    </style>
+
+
+    **************************** Line *************************************
+    <style name="LineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_1sdp</item>
+        <item name="android:background">@color/line_grey</item>
+    </style>
+
+</resources>
