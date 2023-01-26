@@ -266,6 +266,62 @@ class MyFirebaseController @Inject constructor(@param:ApplicationContext val mCo
             })
     }
 
+    fun getAttendanceDates(doctorId: String, onResult: (ArrayList<String>) -> Unit) {
+        loadingDataLive.postValue(true)
+        var datesList = ArrayList<String>()
+        mRootRef.child(ATTENDANCE).child(doctorId)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    loadingDataLive.postValue(false)
+                    try {
+                        for (attendanceSnapShot in dataSnapshot.children) {
+                            attendanceSnapShot?.let { datesList.add(attendanceSnapShot.key!!) }
+                        }
+                        onResult(datesList)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    loadingDataLive.postValue(false)
+                    databaseError.toException().printStackTrace()
+                }
+            })
+    }
+
+    fun getAttendanceStudents(
+        doctorId: String,
+        date: String,
+        onResult: (ArrayList<AttendanceModel>) -> Unit
+    ) {
+        loadingDataLive.postValue(true)
+        var attendanceStudentsList = ArrayList<AttendanceModel>()
+        mRootRef.child(ATTENDANCE).child(doctorId).child(date)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    loadingDataLive.postValue(false)
+                    try {
+                        for (snapShot in dataSnapshot.children) {
+                            var attendanceModel =
+                                snapShot.getValue(AttendanceModel::class.java)
+                            attendanceModel?.let {
+                                attendanceStudentsList.add(attendanceModel)
+                            }
+                            onResult(attendanceStudentsList)
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    loadingDataLive.postValue(false)
+                    databaseError.toException().printStackTrace()
+                }
+            })
+    }
+
     private fun checkIfUserLogin(currentUser: FirebaseUser?): Boolean {
         return currentUser != null
     }

@@ -67,7 +67,7 @@ class DoctorHomeActivity : BaseActivity() {
             startActivity(Intent(this, MyStudentsActivity::class.java))
         }
         binding.tvAttendanceList.setOnClickListener {
-//            startActivity(Intent(this, AttendanceActivity::class.java))
+            startActivity(Intent(this, AttendanceDatesActivity::class.java))
         }
 
         binding.tvLogout.setOnClickListener {

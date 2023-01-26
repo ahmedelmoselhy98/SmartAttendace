@@ -219,5 +219,7 @@
     <string name="my_students_list">My Students list</string>
     <string name="attendance_list">Attendance List</string>
     <string name="my_qr_code">My Qr Code</string>
+    <string name="attendance_history">Attendance History</string>
+    <string name="students">Students</string>
 
 </resources>

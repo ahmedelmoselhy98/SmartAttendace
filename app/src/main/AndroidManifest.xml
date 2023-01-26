@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".uilayer.app.BaseApp"
@@ -16,7 +16,7 @@
         android:theme="@style/Theme.SmartAttendace"
         tools:targetApi="31">
         <activity
-            android:name=".uilayer.activities.AttendanceActivity"
+            android:name=".uilayer.activities.AttendanceDatesActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -45,6 +45,13 @@
         </activity>
         <activity
             android:name=".uilayer.activities.StudentHomeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".uilayer.activities.AttendanceStudentsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -208,8 +208,8 @@
     <string name="student_code">رمز الطالب</string>
     <string name="subject_name">اسم المادة</string>
     <string name="user_type">نوع المستخدم</string>
-    <string name="student">طالب</string>
-    <string name="doctor">دكتور</string>
+    <string name="student">الطالب</string>
+    <string name="doctor">الدكتور</string>
     <string name="attendance">حضور</string>
     <string name="absence">غياب</string>
     <string name="doctors_list">قائمة الدكاترة</string>
@@ -219,5 +219,7 @@
     <string name="my_students_list">قائمة طلابى</string>
     <string name="attendance_list">قائمة الحضور</string>
     <string name="my_qr_code">كود ال QR الخاص بى</string>
+    <string name="attendance_history">تاريخ الحضور</string>
+    <string name="students">الطلاب</string>
 
 </resources>
