@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="loading"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,6 +15,10 @@
         android:layout_height="match_parent"
         android:background="@color/background_screen"
         tools:context=".uilayer.activities.LoginActivity">
+
+        <include
+            layout="@layout/loading_layout"
+            app:loading="@{loading}" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -66,4 +66,15 @@ dependencies {
 
     implementation("io.github.g00fy2.quickie:quickie-bundled:1.6.0")
 
+    // GSON
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
+    //Progress spinner
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+    implementation 'com.github.androidmads:QRGenerator:1.0.1'
+
+    implementation 'com.github.kenglxn.QRGen:android:3.0.1'
+
 }

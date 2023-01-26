@@ -22,7 +22,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/_8sdp"
-            android:text="احمد ابراهيم"
             android:textAlignment="viewStart"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/_15ssp" />
@@ -37,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/_8sdp"
-            android:text="123456"
             android:textAlignment="viewStart"
             android:textColor="@color/text_color_black"
             android:textSize="@dimen/_15ssp" />

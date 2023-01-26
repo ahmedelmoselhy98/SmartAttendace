@@ -5,12 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.elmoselhy.smartattendace.databinding.ItemLayoutMyStudentBinding
 import com.elmoselhy.smartattendace.datalayer.models.BaseModel
+import com.elmoselhy.smartattendace.datalayer.models.DoctorModel
+import com.elmoselhy.smartattendace.datalayer.models.StudentModel
 
 class MyStudentsAdapter(
-    var itemsList: ArrayList<BaseModel>,
-    private val onItemClicked: (Int, BaseModel) -> Unit,
+    var itemsList: ArrayList<StudentModel>,
+    private val onAttendanceClicked: (Int, StudentModel) -> Unit,
+    private val onAbsenceClicked: (Int, StudentModel) -> Unit
 ) :
-    BaseAdapter<MyStudentsAdapter.CustomViewHolder, BaseModel>(itemsList) {
+    BaseAdapter<MyStudentsAdapter.CustomViewHolder, StudentModel>(itemsList) {
     //Custom View Holder
     open class CustomViewHolder(var binding: ItemLayoutMyStudentBinding) :
         RecyclerView.ViewHolder(binding.root) {}
@@ -29,11 +32,20 @@ class MyStudentsAdapter(
     }
 
     private fun setUpData(holder: CustomViewHolder, position: Int) {
+        holder.binding.run {
+            tvStudentName.text = itemsList[position].fullName
+            tvStudentCode.text = itemsList[position].studentCode
+        }
     }
 
     private fun setUpActions(holder: CustomViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            onItemClicked(position, itemsList[position])
+        holder.binding.run {
+            btnAttendance.setOnClickListener {
+                onAttendanceClicked(position, itemsList[position])
+            }
+            btnAbsence.setOnClickListener {
+                onAbsenceClicked(position, itemsList[position])
+            }
         }
     }
 

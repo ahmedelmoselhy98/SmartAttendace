@@ -33,7 +33,7 @@
             android:textSize="@dimen/_13ssp" />
 
         <TextView
-            android:id="@+id/tv_student_code"
+            android:id="@+id/tv_subject_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/_8sdp"
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_attendance"
+                android:id="@+id/btn_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_8sdp"
@@ -57,7 +57,7 @@
                 android:textColor="@color/text_color_white" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_absence"
+                android:id="@+id/btn_delete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
