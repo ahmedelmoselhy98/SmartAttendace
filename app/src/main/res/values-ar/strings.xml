@@ -221,5 +221,6 @@
     <string name="my_qr_code">كود ال QR الخاص بى</string>
     <string name="attendance_history">تاريخ الحضور</string>
     <string name="students">الطلاب</string>
+    <string name="my_subjects">المواد</string>
 
 </resources>

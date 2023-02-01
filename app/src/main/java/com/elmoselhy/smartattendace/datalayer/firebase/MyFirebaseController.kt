@@ -42,6 +42,7 @@ class MyFirebaseController @Inject constructor(@param:ApplicationContext val mCo
     private val currentUser = auth.currentUser
     private val BASE_URL_KEY = "base_url"
     private val USERS = "Users"
+    private val MY_DOCTORS = "MyDoctors"
     private val MY_STUDENTS = "MyStudents"
     private val DOCTORS = "Doctors"
     private val ATTENDANCE = "Attendance"
@@ -152,27 +153,37 @@ class MyFirebaseController @Inject constructor(@param:ApplicationContext val mCo
     }
 
     fun registerStudentToDoctor(
-        doctorId: String,
+        doctorModel: DoctorModel,
         userModel: UserModel,
         onResult: (Boolean) -> Unit
     ) {
         loadingDataLive.postValue(true)
-        userModel.id.let { id ->
-            mRootRef.child(MY_STUDENTS).child(doctorId).child(id!!)
-                .setValue(userModel).addOnCompleteListener {
-                    loadingDataLive.postValue(false)
-                    onResult(it.isSuccessful)
+        doctorModel.id.let { id ->
+            mRootRef.child(MY_DOCTORS).child(userModel.id!!).child(doctorModel.id!!)
+                .setValue(doctorModel).addOnCompleteListener {
+                    userModel.id.let { id ->
+                        mRootRef.child(MY_STUDENTS).child(doctorModel.id!!).child(userModel.id!!)
+                            .setValue(userModel).addOnCompleteListener {
+                                loadingDataLive.postValue(false)
+                                onResult(it.isSuccessful)
+                            }
+                    }
                 }
         }
     }
 
     fun removeStudentFromDoctor(doctorId: String, studentId: String, onResult: (Boolean) -> Unit) {
         loadingDataLive.postValue(true)
-        mRootRef.child(MY_STUDENTS).child(doctorId).child(studentId).removeValue()
+        mRootRef.child(MY_DOCTORS).child(studentId).child(doctorId).removeValue()
             .addOnCompleteListener {
-                loadingDataLive.postValue(false)
-                onResult(it.isSuccessful)
+                mRootRef.child(ATTENDANCE).child(doctorId).removeValue()
+                mRootRef.child(MY_STUDENTS).child(doctorId).child(studentId).removeValue()
+                    .addOnCompleteListener {
+                        loadingDataLive.postValue(false)
+                        onResult(it.isSuccessful)
+                    }
             }
+
     }
 
     private fun getUserTypeTable(userType: Int?): String {
@@ -266,6 +277,34 @@ class MyFirebaseController @Inject constructor(@param:ApplicationContext val mCo
             })
     }
 
+    fun getMyDoctors(id: String, onResult: (ArrayList<DoctorModel>) -> Unit) {
+        loadingDataLive.postValue(true)
+        var doctorsList = ArrayList<DoctorModel>()
+        mRootRef.child(MY_DOCTORS).child(id)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    loadingDataLive.postValue(false)
+                    try {
+                        for (doctorSnapShot in dataSnapshot.children) {
+                            var doctorModel =
+                                doctorSnapShot.getValue(DoctorModel::class.java)
+                            doctorModel?.let {
+                                doctorsList.add(doctorModel)
+                            }
+                            onResult(doctorsList)
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    loadingDataLive.postValue(false)
+                    databaseError.toException().printStackTrace()
+                }
+            })
+    }
+
     fun getAttendanceDates(doctorId: String, onResult: (ArrayList<String>) -> Unit) {
         loadingDataLive.postValue(true)
         var datesList = ArrayList<String>()
@@ -276,6 +315,42 @@ class MyFirebaseController @Inject constructor(@param:ApplicationContext val mCo
                     try {
                         for (attendanceSnapShot in dataSnapshot.children) {
                             attendanceSnapShot?.let { datesList.add(attendanceSnapShot.key!!) }
+                        }
+                        onResult(datesList)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    loadingDataLive.postValue(false)
+                    databaseError.toException().printStackTrace()
+                }
+            })
+    }
+
+    fun getAttendanceDatesForStudents(
+        doctorId: String,
+        studentId: String,
+        onResult: (ArrayList<String>) -> Unit
+    ) {
+        loadingDataLive.postValue(true)
+        var datesList = ArrayList<String>()
+        mRootRef.child(ATTENDANCE).child(doctorId)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    loadingDataLive.postValue(false)
+                    try {
+                        for (snapShot in dataSnapshot.children) {
+                            if (!mRootRef.child(ATTENDANCE).child(doctorId).child(snapShot.key!!)
+                                    .child(studentId).key.isNullOrEmpty()
+                            ) {
+                                if (mRootRef.child(ATTENDANCE).child(doctorId).child(snapShot.key!!)
+                                        .child(studentId).key == studentId
+                                ) {
+                                    datesList.add(snapShot.key!!)
+                                }
+                            }
                         }
                         onResult(datesList)
                     } catch (e: Exception) {

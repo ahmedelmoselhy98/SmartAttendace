@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/doctor"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/tv_student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:text="مدحت مصطفى"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/_15ssp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject_name"
+            android:textSize="@dimen/_13ssp" />
+
+        <TextView
+            android:id="@+id/tv_subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_8sdp"
+            android:text="حقوق انسان"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/_15ssp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_attendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green"
+                android:text="@string/attendance_history"
+                android:textColor="@color/text_color_white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_background_red"
+                android:text="@string/delete"
+                android:textColor="@color/text_color_white" />
+        </LinearLayout>
+        <View
+            style="@style/LineStyle"
+            android:layout_marginVertical="@dimen/_8sdp"/>
+    </LinearLayout>
+</layout>

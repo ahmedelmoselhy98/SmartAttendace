@@ -42,6 +42,11 @@ class MyStudentsActivity : BaseActivity() {
         var adapter = MyStudentsAdapter(list, onAttendanceClicked = { position, item ->
             var attendanceModel = AttendanceModel()
             attendanceModel.date = Utils.formatDate(Date())
+            var doctorModel = DoctorModel()
+            doctorModel.id = preference.getUserSession()!!.id!!
+            doctorModel.fullName = preference.getUserSession()!!.fullName!!
+            doctorModel.subjectName = preference.getUserSession()!!.subjectName!!
+            attendanceModel.doctor = doctorModel
             var studentModel = StudentModel()
             studentModel.id = item.id!!
             studentModel.fullName = item.fullName!!

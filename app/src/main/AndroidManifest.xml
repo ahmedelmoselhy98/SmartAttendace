@@ -44,6 +44,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".uilayer.activities.MyDoctorsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".uilayer.activities.AttendanceDatesForStudentsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".uilayer.activities.StudentHomeActivity"
             android:exported="false">
             <meta-data

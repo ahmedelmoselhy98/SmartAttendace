@@ -1,22 +1,25 @@
 package com.elmoselhy.smartattendace.uilayer.activities
 
+import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.elmoselhy.smartattendace.uilayer.adapters.DoctorsAdapter
 import com.elmoselhy.smartattendace.databinding.ActivityDoctorsBinding
+import com.elmoselhy.smartattendace.databinding.ActivityMyDoctorsBinding
 import com.elmoselhy.smartattendace.datalayer.models.AttendanceModel
 import com.elmoselhy.smartattendace.datalayer.models.DoctorModel
 import com.elmoselhy.smartattendace.datalayer.models.StudentModel
+import com.elmoselhy.smartattendace.uilayer.adapters.MyDoctorsAdapter
 import com.elmoselhy.smartattendace.utilitiess.utils.Utils
 import java.util.Date
 import kotlin.collections.ArrayList
 
-class DoctorsActivity : BaseActivity() {
-    lateinit var binding: ActivityDoctorsBinding
+class MyDoctorsActivity : BaseActivity() {
+    lateinit var binding: ActivityMyDoctorsBinding
     override fun setUpLayoutView(): View {
-        binding = ActivityDoctorsBinding.inflate(layoutInflater)
+        binding = ActivityMyDoctorsBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -24,11 +27,11 @@ class DoctorsActivity : BaseActivity() {
         firebaseController.observeLoading().observe(this, Observer {
             binding.loading = it
         })
-        firebaseController.getDoctors {
+        firebaseController.getMyDoctors(preference.getUserSession()!!.id!!) {
             if (it.isNullOrEmpty()) {
                 binding.recycler.visibility = View.GONE
                 binding.tvEmpty.visibility = View.VISIBLE
-                return@getDoctors
+                return@getMyDoctors
             }
             binding.tvEmpty.visibility = View.GONE
             setUpList(it)
@@ -37,15 +40,13 @@ class DoctorsActivity : BaseActivity() {
     }
 
     private fun setUpList(list: ArrayList<DoctorModel>) {
-        var adapter = DoctorsAdapter(list, onRegisterClicked = { position, item ->
-            firebaseController.registerStudentToDoctor(
-                item,
-                preference.getUserSession()!!,
-                onResult = {
-                    if (it) {
-                        Toast.makeText(this, "تم التسجيل بنجاح", Toast.LENGTH_SHORT).show()
-                    }
-                })
+        var adapter = MyDoctorsAdapter(list, onAttendanceClicked = { position, item ->
+            startActivity(
+                Intent(
+                    this,
+                    AttendanceDatesForStudentsActivity::class.java
+                ).putExtra("doctorId", item.id)
+            )
         }, onDeleteClicked = { position, item ->
             firebaseController.removeStudentFromDoctor(
                 item.id!!,
@@ -53,6 +54,7 @@ class DoctorsActivity : BaseActivity() {
                 onResult = {
                     if (it) {
                         Toast.makeText(this, "تم إلغاء التسجيل بنجاح", Toast.LENGTH_SHORT).show()
+                        init()
                     }
                 })
         })

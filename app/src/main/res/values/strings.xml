@@ -221,5 +221,6 @@
     <string name="my_qr_code">My Qr Code</string>
     <string name="attendance_history">Attendance History</string>
     <string name="students">Students</string>
+    <string name="my_subjects">My Subjects</string>
 
 </resources>

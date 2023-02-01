@@ -8,6 +8,7 @@ import androidmads.library.qrgenearator.QRGContents
 import androidx.core.view.GravityCompat
 import com.elmoselhy.smartattendace.databinding.ActivityStudentHomeBinding
 import com.elmoselhy.smartattendace.datalayer.models.AttendanceModel
+import com.elmoselhy.smartattendace.datalayer.models.DoctorModel
 import com.elmoselhy.smartattendace.datalayer.models.StudentModel
 import com.elmoselhy.smartattendace.datalayer.session.Preference
 import com.elmoselhy.smartattendace.utilitiess.utils.Utils
@@ -47,6 +48,9 @@ class StudentHomeActivity : BaseActivity() {
         binding.tvDoctorsList.setOnClickListener {
             startActivity(Intent(this, DoctorsActivity::class.java))
         }
+        binding.tvSubjectsList.setOnClickListener {
+            startActivity(Intent(this, MyDoctorsActivity::class.java))
+        }
         binding.tvLogout.setOnClickListener {
             preference.logout(object : Preference.SessionCallBack {
                 override fun setOnLogout() {
@@ -64,24 +68,37 @@ class StudentHomeActivity : BaseActivity() {
         // handle QRResult
         when (result) {
             is QRResult.QRSuccess -> {
-                var attendanceModel = AttendanceModel()
-                attendanceModel.date = Utils.formatDate(Date())
-                var studentModel = StudentModel()
-                studentModel.id = preference.getUserSession()!!.id!!
-                studentModel.fullName = preference.getUserSession()!!.fullName!!
-                studentModel.studentCode = preference.getUserSession()!!.studentCode!!
-                attendanceModel.student = studentModel
-                firebaseController.setStudentAttendance(
-                    result.content.rawValue,
-                    attendanceModel,
-                    onResult = {
-                        if (it) {
-                            Toast.makeText(this, "تعيين حضور", Toast.LENGTH_SHORT).show()
-                        }
-                    })
+                firebaseController.getUser(result.content.rawValue, onResult = {
+                    it?.let {
+                        var attendanceModel = AttendanceModel()
+                        attendanceModel.date = Utils.formatDate(Date())
+                        var doctorModel = DoctorModel()
+                        doctorModel.id = it!!.id!!
+                        doctorModel.fullName = it.fullName!!
+                        doctorModel.subjectName = it.subjectName!!
+                        attendanceModel.doctor = doctorModel
+                        var studentModel = StudentModel()
+                        studentModel.id = preference.getUserSession()!!.id!!
+                        studentModel.fullName = preference.getUserSession()!!.fullName!!
+                        studentModel.studentCode = preference.getUserSession()!!.studentCode!!
+                        attendanceModel.student = studentModel
+                        firebaseController.setStudentAttendance(
+                            result.content.rawValue,
+                            attendanceModel,
+                            onResult = { success ->
+                                if (success) {
+                                    Toast.makeText(this, "تعيين حضور", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                    }
+                })
             }
             QRResult.QRUserCanceled -> Toast.makeText(this, "تم الإلفاء", Toast.LENGTH_SHORT).show()
-            QRResult.QRMissingPermission -> Toast.makeText(this, "Missing permission", Toast.LENGTH_SHORT).show()
+            QRResult.QRMissingPermission -> Toast.makeText(
+                this,
+                "Missing permission",
+                Toast.LENGTH_SHORT
+            ).show()
             is QRResult.QRError -> "${result.exception.javaClass.simpleName}: ${result.exception.localizedMessage}"
         }
     }
