@@ -44,22 +44,8 @@ class DoctorHomeActivity : BaseActivity() , NfcUtilities.NfcActivity {
     }
 
     private fun qrCodeGenerator() {
-
         val myBitmap: Bitmap = QRCode.from(preference.getUserSession()!!.id!!).bitmap()
         binding.imageQrCode.setImageBitmap(myBitmap)
-
-
-//        val qrgEncoder = QRGEncoder(preference.getUserSession()!!.id!!, QRGContents.Type.TEXT)
-//        qrgEncoder.colorBlack = Color.BLACK
-//        qrgEncoder.colorWhite = Color.WHITE
-//        try {
-//            // Getting QR-Code as Bitmap
-//            var bitmap = qrgEncoder.bitmap
-//            // Setting Bitmap to ImageView
-//            binding.imageQrCode.setImageBitmap(bitmap)
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//        }
     }
 
     private fun setUpPageActions() {

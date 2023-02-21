@@ -10,10 +10,6 @@ class NfcUtilities(private val nfcActivity: NfcActivity
 ) :
     NfcAdapter.CreateNdefMessageCallback,
     NfcAdapter.OnNdefPushCompleteCallback {
-
-
-
-
     override fun createNdefMessage(event: NfcEvent): NdefMessage {
         // creating outcoming NFC message with a helper method
         // you could as well create it manually and will surely need, if Android version is too low
